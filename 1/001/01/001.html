@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="./node_modules/babel-standalone/babel.js"></script>
+</head>
+
+<body>
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            constructor(props) {
+                super(props);
+            };
+            render() {
+                let childrenStr = [1, 2, 3, 4, 555, 66];
+                let chhilderDom = childrenStr.map((item, index) => (
+                    <h4>你好，这是{item}</h4>
+                ))
+                return (
+
+                    <div>
+                        <h4>hello word</h4>
+                        <p>{this.props.name}</p>
+                        {chhilderDom}
+                    </div>
+                );
+            }
+        }
+        let nameProp = "杨春测试"
+        let ODiv = document.getElementById("app");
+        ReactDOM.render(
+            <MyComponent name={nameProp} />,
+            ODiv
+        )
+    </script>
+    <div id="app"></div>
+
+</body>
+
+</html>
