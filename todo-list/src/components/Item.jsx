@@ -4,7 +4,8 @@ import PropTypes from "prop-types"
 export default class Item extends Component {
     static propTypes = {
         todItem: PropTypes.object.isRequired,
-        _romeItem:PropTypes.func.isRequired
+        _romeItem:PropTypes.func.isRequired,
+        _changeFinshed:PropTypes.func.isRequired,
     }
     constructor(props) {
         super(props)
@@ -13,7 +14,7 @@ export default class Item extends Component {
         }
     };
     render() {
-        const { todItem,_romeItem } = this.props;
+        const { todItem,_romeItem,_changeFinshed } = this.props;
         const { hasFlag } = this.state;
         return (
             <li
@@ -21,7 +22,10 @@ export default class Item extends Component {
                 onMouseOut={() => { this._outLi(false) }}
             >
                 <label>
-                    <input type="checkbox" />
+                    <input type="checkbox" 
+                    checked={todItem.finished}
+                    onChange={()=>{_changeFinshed(todItem.id,!todItem.finished)}}
+                    />
                     <span>{todItem.title}</span>
                 </label>
                 <button

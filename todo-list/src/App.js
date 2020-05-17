@@ -16,32 +16,108 @@ class App extends Component{
           {id: 4, title: '看一小时Python的课程', finished: false},
       ],
       finishedCount: 0
-    }
+    };
+    this.FootRef =React.createRef();
+  };
+  _changeFinshed = (todoId,finished) =>{
+    const todoTemplate = this.state.todos;
+    let finishedCount = 0;
+    todoTemplate.forEach( (item,index) => {
+      if(item.id == todoId){
+        item.finished = finished;
+      }
+    })
+    todoTemplate.forEach( (item,index) => {
+      if(item.finished){
+        finishedCount+=1;
+      }
+    })
+    
+    this.setState({
+      todos:todoTemplate,
+      finishedCount
+    })
   };
   _romeItem = (todoId) =>{
-    console.log(11,todoId);
     const oldTodos = this.state.todos;
+    let finishedCount = 0;
     oldTodos.forEach((item,index) => {
       if(item.id===todoId){
        oldTodos.splice(index,1);
       }
     })
+    oldTodos.forEach( (item,index) => {
+      if(item.finished){
+        finishedCount+=1;
+      }
+    })
     this.setState({
-      todos:oldTodos
+      todos:oldTodos,
+      finishedCount
+    })
+  };
+  _addOneTodo =(title) => {
+    let todoTmp = this.state.todos;
+    const todo = {id: todoTmp.length===0?1:todoTmp[todoTmp.length-1].id+1,
+       title, finished: false};
+       todoTmp.push(todo);
+       this.setState({
+         todos:todoTmp
+       })
+  };
+  _deleAllFinsed = () => {
+    let todoTmp = this.state.todos;
+    let arr = [];
+    todoTmp.forEach(item => {
+      if(!item.finished){
+        arr.push(item);
+      }
+    })
+    this.setState({
+      todos:arr,
+      finishedCount: 0
+    })
+    this.FootRef.current._isCheckedFalse();
+  };
+  _footCheckAll = (isChecked) => {
+    console.log(11,isChecked)
+    const todosTmp = this.state.todos;
+    todosTmp.forEach(item => {
+      if(isChecked){
+        if(!item.finished){
+          item.finished = true;
+        }
+      }else{
+        if(item.finished){
+          item.finished = false;
+        }
+      }
+    })
+    this.setState({
+      todos:todosTmp
     })
   };
   render() {
-    const {todos} = this.state;
+    const {todos,finishedCount} = this.state;
     return (
       <div className="App">
       <div className="todo-container">
     <div className="todo-wrap">
-      <Head/>
+      <Head
+        _addOneTodo={this._addOneTodo}
+      />
       <List 
       _romeItem={this._romeItem}
+      _changeFinshed={this._changeFinshed}
       tods={todos}
       />
-      <Foot/>
+      <Foot
+      ref={this.FootRef}
+      finishedCount={finishedCount}
+      totalCount={todos.length}
+      _deleAllFinsed={this._deleAllFinsed}
+      _footCheckAll={this._footCheckAll}
+      />
     </div>
   </div>
     </div>
