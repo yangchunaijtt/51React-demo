@@ -17,9 +17,22 @@
                 super(props);
             };
             render() {
-                let childrenStr = [1, 2, 3, 4, 555, 66];
+                let childrenStr = [
+                    {
+                        id: "s-1",
+                        name: "sdsada111-1"
+                    },
+                    {
+                        id: "s-2",
+                        name: "sdsada111-1"
+                    },
+                    {
+                        id: "s-3",
+                        name: "sdsada111-1"
+                    },
+                ];
                 let chhilderDom = childrenStr.map((item, index) => (
-                    <h4>你好，这是{item}</h4>
+                    <h4 key={item.id}>你好，这是{item.name}</h4>
                 ))
                 return (
 
