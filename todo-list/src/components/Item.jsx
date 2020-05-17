@@ -3,7 +3,8 @@ import PropTypes from "prop-types"
 
 export default class Item extends Component {
     static propTypes = {
-        todItem: PropTypes.object.isRequired
+        todItem: PropTypes.object.isRequired,
+        _romeItem:PropTypes.func.isRequired
     }
     constructor(props) {
         super(props)
@@ -12,7 +13,7 @@ export default class Item extends Component {
         }
     };
     render() {
-        const { todItem } = this.props;
+        const { todItem,_romeItem } = this.props;
         const { hasFlag } = this.state;
         return (
             <li
@@ -23,7 +24,9 @@ export default class Item extends Component {
                     <input type="checkbox" />
                     <span>{todItem.title}</span>
                 </label>
-                <button className="btn btn-warning" style={{ display: hasFlag ? "block" : "none" }}>删除</button>
+                <button
+                onClick={()=>{_romeItem(todItem.id)}}
+                 className="btn btn-warning" style={{ display: hasFlag ? "block" : "none" }}>删除</button>
             </li>
         )
     };

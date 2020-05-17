@@ -18,6 +18,18 @@ class App extends Component{
       finishedCount: 0
     }
   };
+  _romeItem = (todoId) =>{
+    console.log(11,todoId);
+    const oldTodos = this.state.todos;
+    oldTodos.forEach((item,index) => {
+      if(item.id===todoId){
+       oldTodos.splice(index,1);
+      }
+    })
+    this.setState({
+      todos:oldTodos
+    })
+  };
   render() {
     const {todos} = this.state;
     return (
@@ -25,13 +37,17 @@ class App extends Component{
       <div className="todo-container">
     <div className="todo-wrap">
       <Head/>
-      <List tods={todos}/>
+      <List 
+      _romeItem={this._romeItem}
+      tods={todos}
+      />
       <Foot/>
     </div>
   </div>
     </div>
     )
   };
+ 
 }
 
 export default App;
