@@ -23,7 +23,7 @@ class App extends Component{
     const todoTemplate = this.state.todos;
     let finishedCount = 0;
     todoTemplate.forEach( (item,index) => {
-      if(item.id == todoId){
+      if(item.id === todoId){
         item.finished = finished;
       }
     })
@@ -80,8 +80,11 @@ class App extends Component{
     this.FootRef.current._isCheckedFalse();
   };
   _footCheckAll = (isChecked) => {
-    console.log(11,isChecked)
     const todosTmp = this.state.todos;
+    if(!todosTmp.length){
+      this.FootRef.current._isCheckedFalse();
+      return;
+    }
     todosTmp.forEach(item => {
       if(isChecked){
         if(!item.finished){
