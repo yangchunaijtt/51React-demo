@@ -81,7 +81,7 @@ class App extends Component{
   };
   _footCheckAll = (isChecked) => {
     const todosTmp = this.state.todos;
-    if(!todosTmp.length){
+    if(!todosTmp.length && isChecked){
       this.FootRef.current._isCheckedFalse();
       return;
     }
