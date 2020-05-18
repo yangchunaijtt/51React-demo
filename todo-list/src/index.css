@@ -86,7 +86,9 @@ li {
 }
 
 li label {
-  cursor: pointer;
+	height: 37px;
+	overflow: hidden;
+	cursor: pointer;
 }
 
 

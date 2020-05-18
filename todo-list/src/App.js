@@ -81,6 +81,7 @@ class App extends Component{
   };
   _footCheckAll = (isChecked) => {
     const todosTmp = this.state.todos;
+	let finishedCount = 0;
     if(!todosTmp.length && isChecked){
       this.FootRef.current._isCheckedFalse();
       return;
@@ -90,14 +91,17 @@ class App extends Component{
         if(!item.finished){
           item.finished = true;
         }
+		finishedCount = todosTmp.length;
       }else{
         if(item.finished){
           item.finished = false;
         }
+		finishedCount =0;
       }
     })
     this.setState({
-      todos:todosTmp
+      todos:todosTmp,
+	  finishedCount
     })
   };
   render() {
