@@ -5,6 +5,14 @@ import Foot from "./components/Foot"
 import Head from "./components/Head"
 import List from "./components/List"
 
+/**
+ * 执行yarn eject命令
+npx create-react-app xxx
+cd xxx
+yarn eject
+新建项目后要先执行 yarn eject 命令再修改，否则报错，需要重新建项目。
+特别注意，整个过程是不可逆的。
+ */
 class App extends Component{
   constructor(props){
     super(props);
