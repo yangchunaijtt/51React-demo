@@ -46,6 +46,7 @@ class App extends Component{
       finishedCount
     })
   };
+  //删除操作
   _romeItem = (todoId) =>{
     const oldTodos = this.state.todos;
     let finishedCount = 0;
@@ -64,6 +65,7 @@ class App extends Component{
       finishedCount
     })
   };
+  // 添加操作
   _addOneTodo =(title) => {
     let todoTmp = this.state.todos;
     const todo = {id: todoTmp.length===0?1:todoTmp[todoTmp.length-1].id+1,
