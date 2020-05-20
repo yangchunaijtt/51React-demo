@@ -1,5 +1,10 @@
+/**
+ * react+redux
+ * 在原本项目基础上，使用react-redux
+ * React-Redux
+ */
 import React,{Component} from 'react';
-// import logo from './logo.svg';
+
 import './App.css';
 import Foot from "./components/Foot"
 import Head from "./components/Head"
@@ -18,17 +23,17 @@ class App extends Component{
   render() {
     return (
       <div className="App">
-      <div className="todo-container">
-    <div className="todo-wrap">
-      <Head />
-      <List />
-      <Foot/>
-    </div>
-  </div>
+        <div className="todo-container">
+          <div className="todo-wrap">
+            <Head />
+            <List />
+            <Foot />
+        </div>
+      </div>
     </div>
     )
   };
- 
+  
 }
 
 export default App;
