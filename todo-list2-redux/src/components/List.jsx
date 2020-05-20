@@ -4,7 +4,7 @@ import store from "../store/index"
 
 
 export default class List extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = store.getState();
         store.subscribe(this.storeChange) // 订阅Redux的状态
@@ -17,9 +17,9 @@ export default class List extends Component {
         return (
             <ul className="todo-main">
                 {todos.map((item, index) => (
-                  <Item 
-                  key={item.id} 
-                  todItem={item}/>
+                    <Item
+                        key={item.id}
+                        todItem={item} />
                 ))}
             </ul>
         )
