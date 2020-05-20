@@ -12,7 +12,10 @@ export default class Foot extends Component {
         this.inputRef = React.createRef();
     };
     _selected() {
-        let checked = this.state.isChecked;
+        const { todos, finishedCount, isChecked } = this.state;
+        let checked = isChecked;
+        checked = finishedCount === todos.length ? true : todos.length ? checked : false;
+
         const action = footCheckAll(!checked);
         store.dispatch(action);
         this.setState({
@@ -32,7 +35,7 @@ export default class Foot extends Component {
             <div className="todo-footer">
                 <label>
                     <input type="checkbox"
-                        checked={todos.length ? isChecked : false}
+                        checked={finishedCount === todos.length ? true : todos.length ? isChecked : false}
                         onChange={() => { this._selected() }}
                     />
                 </label>
