@@ -14,48 +14,7 @@ yarn eject
 特别注意，整个过程是不可逆的。
  */
 class App extends Component{
-  constructor(props){
-    super(props);
-  };
-  _deleAllFinsed = () => {
-    let todoTmp = this.state.todos;
-    let arr = [];
-    todoTmp.forEach(item => {
-      if(!item.finished){
-        arr.push(item);
-      }
-    })
-    this.setState({
-      todos:arr,
-      finishedCount: 0
-    })
-    this.FootRef.current._isCheckedFalse();
-  };
-  _footCheckAll = (isChecked) => {
-    const todosTmp = this.state.todos;
-	let finishedCount = 0;
-    if(!todosTmp.length && isChecked){
-      this.FootRef.current._isCheckedFalse();
-      return;
-    }
-    todosTmp.forEach(item => {
-      if(isChecked){
-        if(!item.finished){
-          item.finished = true;
-        }
-		finishedCount = todosTmp.length;
-      }else{
-        if(item.finished){
-          item.finished = false;
-        }
-		finishedCount =0;
-      }
-    })
-    this.setState({
-      todos:todosTmp,
-	  finishedCount
-    })
-  };
+  
   render() {
     return (
       <div className="App">
@@ -63,10 +22,7 @@ class App extends Component{
     <div className="todo-wrap">
       <Head />
       <List />
-      <Foot
-      _deleAllFinsed={this._deleAllFinsed}
-      _footCheckAll={this._footCheckAll}
-      />
+      <Foot/>
     </div>
   </div>
     </div>

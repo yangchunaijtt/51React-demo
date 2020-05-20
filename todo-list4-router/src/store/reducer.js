@@ -27,6 +27,7 @@ export default (state = defaultState, action) => {
                 finishedCount += 1;
             }
         })
+        newState.finishedCount = finishedCount;
         return newState;
     };
     // 添加一条数据
