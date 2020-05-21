@@ -3,6 +3,10 @@
  * 在原本项目基础上，使用Ajax
  * Ajax
  */
+/**
+ * Redux-thunk:用于处理异步action
+ * Redux-saga
+ */
 import React,{Component} from 'react';
 
 import './App.css';
