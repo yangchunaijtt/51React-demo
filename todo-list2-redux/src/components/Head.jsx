@@ -8,7 +8,8 @@ export default class Head extends Component {
         super(props)
         this.state = store.getState();
         this.inputRef = React.createRef();
-        store.subscribe(this.storeChange) // 订阅Redux的状态
+        this._storeChange = this._storeChange.bind(this);
+        store.subscribe(this._storeChange) // 订阅Redux的状态
     };
     addOne = (e) => {
         if (e.keyCode === 13) {
@@ -18,7 +19,7 @@ export default class Head extends Component {
             this.inputRef.current.value = "";
         }
     };
-    storeChange = () => {
+    _storeChange = () => {
         this.setState(store.getState())
     };
     render() {

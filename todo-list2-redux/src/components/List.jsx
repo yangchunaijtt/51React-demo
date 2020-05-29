@@ -7,9 +7,11 @@ export default class List extends Component {
     constructor(props) {
         super(props)
         this.state = store.getState();
-        store.subscribe(this.storeChange) // 订阅Redux的状态
+        // 订阅store的改变
+        this._storeChange = this._storeChange.bind(this);
+        store.subscribe(this._storeChange) // 订阅Redux的状态
     };
-    storeChange = () => {
+    _storeChange = () => {
         this.setState(store.getState())
     };
     render() {

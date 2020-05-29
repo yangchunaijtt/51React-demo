@@ -11,7 +11,8 @@ export default class Item extends Component {
         super(props)
         this.state = store.getState() // 从store中获取state数据
         this.state.hasFlag = false;
-        store.subscribe(this.storeChange) // 订阅Redux的状态
+        this._storeChange = this._storeChange.bind(this);
+        store.subscribe(this._storeChange) // 订阅Redux的状态
     };
     _overLi(flag) {
         this.setState({
@@ -31,7 +32,7 @@ export default class Item extends Component {
         const action = removeItem(todoId);
         store.dispatch(action);
     };
-    storeChange = () => {
+    _storeChange = () => {
         this.setState(store.getState())
     };
     render() {

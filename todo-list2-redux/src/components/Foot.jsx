@@ -8,7 +8,8 @@ export default class Foot extends Component {
         super(props)
         this.state = store.getState();
         this.state.isChecked = false;
-        store.subscribe(this.storeChange) // 订阅Redux的状态
+        this._storeChange = this._storeChange.bind(this);
+        store.subscribe(this._storeChange) // 订阅Redux的状态
         this.inputRef = React.createRef();
     };
     _selected() {
@@ -26,7 +27,7 @@ export default class Foot extends Component {
         const action = deledAllFinshed();
         store.dispatch(action);
     };
-    storeChange = () => {
+    _storeChange = () => {
         this.setState(store.getState())
     };
     render() {
