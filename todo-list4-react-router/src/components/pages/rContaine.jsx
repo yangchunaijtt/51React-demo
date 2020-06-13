@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 class RContaine extends Component {
-    constructor(props) {
-        super(props);
-    };
+    // constructor(props) {
+    //     super(props);
+    // };
     render() {
         return (
             <div>
@@ -12,7 +12,7 @@ class RContaine extends Component {
         )
     };
     componentDidMount(){
-        console.log("关注页",this.props)
+        // console.log("关注页",this.props)
     }
 }
 

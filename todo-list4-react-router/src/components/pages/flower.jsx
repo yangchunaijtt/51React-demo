@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom"
 
 class Flower extends Component {
-    constructor(props) {
-        super(props);
-    };
+    // constructor(props) {
+    //     super(props);
+    // };
     render() {
         return (
             <div>
@@ -17,7 +17,7 @@ class Flower extends Component {
         )
     };
     componentDidMount() {
-        console.log("flower页", this.props, this.props.match.params.id);
+        // console.log("flower页", this.props, this.props.match.params.id);
     }
 }
 
