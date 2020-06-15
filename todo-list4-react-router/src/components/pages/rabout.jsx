@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 
-
 class RAbout extends Component {
-    // constructor(props) {
-    //     super(props);
-    // };
     render() {
         return (
             <div>
@@ -17,9 +13,8 @@ class RAbout extends Component {
             </div>
         )
     };
-    componentDidMount() {
-        // console.log("about页", this.props);
-    }
+    componentDidMount() { }
 }
+
 
 export default RAbout;

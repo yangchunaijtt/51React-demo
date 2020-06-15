@@ -11,7 +11,7 @@ class RContaine extends Component {
             </div>
         )
     };
-    componentDidMount(){
+    componentDidMount() {
         // console.log("关注页",this.props)
     }
 }

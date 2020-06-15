@@ -7,7 +7,7 @@ class List extends Component {
         super(props);
     };
     render() {
-        const {todos }= this.props;
+        const { todos } = this.props;
         return (
             <ul className="todo-main">
                 {todos.map((item, index) => (
