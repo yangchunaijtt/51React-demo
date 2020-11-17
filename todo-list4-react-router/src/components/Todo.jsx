@@ -11,7 +11,10 @@ import Head from "./Head"
 import List from "./List"
 import store from "../store"
 import { getAllItemAction } from '../store/actions'
+<<<<<<< HEAD
 import { Provider } from 'react-redux'
+=======
+>>>>>>> react
 
 /**
  * 执行yarn eject命令
@@ -24,6 +27,7 @@ yarn eject
 class Todo extends Component {
     render() {
         return (
+<<<<<<< HEAD
             <Provider store={store}>
                 <div className="App">
                     <div className="todo-container">
@@ -35,6 +39,17 @@ class Todo extends Component {
                     </div>
                 </div>
             </Provider>
+=======
+            <div className="App">
+                <div className="todo-container">
+                    <div className="todo-wrap">
+                        <Head />
+                        <List />
+                        <Foot />
+                    </div>
+                </div>
+            </div>
+>>>>>>> react
         )
     };
     componentDidMount() {

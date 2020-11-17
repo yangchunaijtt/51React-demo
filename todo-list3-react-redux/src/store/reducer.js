@@ -17,7 +17,14 @@ export default (state = defaultState, action) => {
     if (action.type === GET_ALL_ITEM) {
         let newState = JSON.parse(JSON.stringify(state));
         newState.todos = action.todos;
+<<<<<<< HEAD
+<<<<<<< HEAD:todo-list3-react-redux/src/store/reducer.js
         console.log(22);
+=======
+>>>>>>> react:todo-list3-redux-thunk/src/store/reducer.js
+=======
+        console.log(22);
+>>>>>>> react
         return newState;
     }
     // 删除一条数据

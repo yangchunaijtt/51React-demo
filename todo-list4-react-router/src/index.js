@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+<<<<<<< HEAD
 import Routers from "./Router/index"
 
 ReactDOM.render(
@@ -8,3 +9,23 @@ ReactDOM.render(
      ,
   document.getElementById('root')
 )
+=======
+import { Provider } from 'react-redux'
+import Todo from './components/Todo';
+import * as serviceWorker from './serviceWorker';
+import store from './store'
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <Todo />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+>>>>>>> react

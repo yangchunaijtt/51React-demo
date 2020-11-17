@@ -11,7 +11,15 @@ import Foot from "./components/Foot"
 import Head from "./components/Head"
 import List from "./components/List"
 import store from "./store"
+<<<<<<< HEAD
+<<<<<<< HEAD:todo-list3-react-redux/src/App.js
 import {getAllItemAction} from './store/actions'
+=======
+import {initAllItem} from './store/actions'
+>>>>>>> react:todo-list3-redux-thunk/src/App.js
+=======
+import {getAllItemAction} from './store/actions'
+>>>>>>> react
 
 /**
  * 执行yarn eject命令
@@ -36,7 +44,15 @@ class App extends Component{
     )
   };
   componentDidMount(){
+<<<<<<< HEAD
+<<<<<<< HEAD:todo-list3-react-redux/src/App.js
     const action = getAllItemAction();
+=======
+    const action = initAllItem();
+>>>>>>> react:todo-list3-redux-thunk/src/App.js
+=======
+    const action = getAllItemAction();
+>>>>>>> react
     store.dispatch(action);
   };
 }
